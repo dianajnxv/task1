@@ -1,25 +1,22 @@
-def reverse_words(text):
-    words = text.split(' ')
-    reversed_words = []
-    
-    for word in words:
-        letters = list(word)
-        start = 0
-        end = len(letters) - 1
-        
+def reverse_word(word):
+    letters = list(word)
+    start = 0
+    end = len(letters) - 1
+            
         while start < end:
-            if letters[start].isalpha() and letters[end].isalpha():
-                letters[start], letters[end] = letters[end], letters[start]
-                start += 1
-                end -= 1
-            elif not letters[start].isalpha():
+            if not letters[start] .isalpha():
                 start += 1
             elif not letters[end].isalpha():
                 end -= 1
-
-        reversed_words.append(''.join(letters))
+            else:
+                letters[start], letters[end] = letters[end], letters[start]
+                start += 1
+                end -= 1
     
-    return ' '.join(reversed_words)
+    return ' '.join(letters)
+
+def reversed_words(text):
+    return ''.join(reverse_word(word) for word in text.split(''))
 
 if __name__ == '__main__':
     cases = [
